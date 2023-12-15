@@ -1,0 +1,6 @@
+Aula 3 - Seletores
+
+https://www.w3schools.com/jquery/jquery_selectors.asp
+
+-------------FIM-------------
+

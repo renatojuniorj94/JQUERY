@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores</title>
+</head>
+<body>
+    //Seletores > formas de selecionar um item HTML com jquery
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora quasi eos reprehenderit est maiores voluptas culpa ducimus quisquam deserunt impedit. Laborum, non aperiam. Sit, explicabo praesentium? Labore ullam blanditiis inventore.</p>
+
+    <p id="teste">Isso é um parágrafo de teste</p>
+    
+    <p class="p-yellow">Outro parágrafo</p>
+
+    <div class="p-blue"></div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('p').html('Inserido com jquery')//Selecionando todos os parágrafos
+
+            $('#teste').html('Selecionando um ID')//Para selecionar um id usamos '#'
+
+            $('.p-yellow').html('Selecionando uma classe')//Para selecionar uma classe, usamos antes '.'
+
+            $('p.p-yellow').html('Inserido com Jquery')//Outra forma de selecionar um parágrafo
+
+            $('div.p-blue').html('Selecionando uma classe dentro de uma div')
+
+        })
+    </script>
+</body>
+</html>
