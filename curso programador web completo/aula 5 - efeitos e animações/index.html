@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeitos e animações</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .red {
+            display: inline-block;
+            padding: 50px;
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+
+        .blue{
+            display: inline-block;
+            padding: 50px;
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+        }
+
+        .green {
+            display: inline-block;
+            padding: 50px;
+            height: 50px;
+            width: 50px;
+            background-color: green;
+        }
+
+/*         #flip, #panel {
+            padding: 5px;
+            text-align: center;
+            background-color: rgb(44, 91, 192);
+            color: white;
+        } */
+
+        #flip{
+            cursor: pointer;
+            background-color: rgb(44, 91, 192);
+            color: white;
+            padding: 5px;
+        }
+
+        #panel {
+            display: none;
+            background-color: rgba(44, 91, 192, 0.425);
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aula 5 - JQUERY - Efeitos e animações</h1>
+
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="green"></div>
+
+    <br>
+
+    <button id="botaoHide">Ocultar</button>
+    <button id="botaoShow">Mostrar</button>
+
+    <hr>
+
+    <div id="flip">Clique aqui para aparecer o painel</div>
+    <div id="panel">Painel oculto</div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //Função para ocultar
+            $('#botaoHide').click(function() {
+                $('.blue').hide(2000, function() {
+                    alert('Terminou de esconder!')
+                }) //2000 > Cria uma animação ocultando em 2 segundos
+                /* Outros valores em hide:
+                'fast' (rápido)
+                'slow' (lento) */
+            })
+
+            //Função para mostrar
+            $('#botaoShow').click(function() {
+                $('.blue').show(2000, function() {
+                    alert('Reapareceu!')
+                })
+            })
+        })
+
+        //Podemos usar também o metodo 'toggle()', que funciona como um coringa, nesse casso ele esconde e exibe o item com a mesma função.
+        /* Exemplo:
+        $('#botao').click(function() {
+                $('.blue').toggle(2000, function() {
+                    alert('Reapareceu!')
+                })
+            }) */
+
+        /* Outros metodos:
+        FadeToggle()
+        FadeIn() / FadeOut() */
+
+        $(document).ready(function() {
+            $('#flip').click(function() {
+                $('#panel').slideToggle('slow') //.slideUp() para subir
+            })
+        })
+
+        /* $(document).ready(function() {
+            $('#flip').click(function() {
+                $('#panel').slideDown('slow') //.slideUp() para subir
+            })
+        }) */
+        
+    </script>
+</body>
+</html>

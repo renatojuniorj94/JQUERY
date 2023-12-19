@@ -7,3 +7,11 @@ https://www.w3schools.com/jquery/jquery_selectors.asp
 Aula 4 - Eventos
 
 https://www.w3schools.com/jquery/jquery_events.asp
+
+----------------------FIM---------------------
+
+Aula 5 - Efeitos e animações
+
+https://www.w3schools.com/jquery/jquery_hide_show.asp
+
+----------------------FIM--------------------
