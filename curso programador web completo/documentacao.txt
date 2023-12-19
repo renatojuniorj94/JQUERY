@@ -4,3 +4,6 @@ https://www.w3schools.com/jquery/jquery_selectors.asp
 
 -------------FIM-------------
 
+Aula 4 - Eventos
+
+https://www.w3schools.com/jquery/jquery_events.asp

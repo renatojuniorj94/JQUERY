@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+
+<body>
+    <h1>Aula 4 - Eventos</h1>
+
+    <p id="teste">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam omnis ea voluptas a. Necessitatibus
+        dolorem laudantium ratione odio facere asperiores perferendis soluta quas, earum odit. Delectus numquam
+        similique facilis repudiandae?</p>
+
+    <p id="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis magni libero iste et
+        blanditiis possimus. Iure suscipit accusantium similique deserunt mollitia cum modi placeat obcaecati? Unde
+        quisquam repellat rem?</p>
+
+    <p id="hover">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, atque earum molestiae unde,
+        aspernatur, exercitationem sunt quisquam enim suscipit harum eveniet quas quidem ex delectus illum labore
+        officiis! Vitae, praesentium.</p>
+
+    <button id="botao" style="padding: 20px;">Clique aqui</button>
+
+    <br>
+
+    <input type="text" placeholder="Digite algo..." style="margin-top: 20px; padding: 10px;">
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#teste').click(function () {
+                //Aqui dentro coloca o código
+                $(this).html('Mudei quando fui clicado.')
+            })
+        })
+
+        //Escondendo parágrafo
+        $(document).ready(function () {
+            $('#hide').hide()
+            /* $('#botao').hide() // Escondendo botão
+            $('p').hide() // Escondendo parágrafo
+            $('h1').hide() //Escondendo Título (h1) */
+
+            //.dlbclick(function() {}) //Duplo clique
+            //.mouseenter(function() {}) //O que acontece quando mouse entra em determinado campo
+            //.mouseleave(function() {}) //O que acontece quando o mouse sai de determinado campo
+        })
+
+        $(document).ready(function () {
+            $('#hover').hover(function () {
+                $(this).text('Entrou mouse')
+            },
+                function () {
+                    $(this).text('Saiu o mouse')
+                }
+            )
+        })
+
+        //Pesquisar também evento '.on', onde conseguimos disparar diversos eventos em um único elemento em forma de objeto.
+        $(document).ready(function () {
+            $("#botao").click(function () {
+                alert('Clicou no botão!')
+            })
+        })
+
+        //Para focar o campo ao carregar a página
+        $(document).ready(function () {
+            $("input").focus()
+        })
+
+
+        //Ao focar no input
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow")
+            })
+        })
+
+        //Ao desfocar do input
+        $(document).ready(function () {
+            $("input").blur(function () {
+                $(this).css("background-color", "white")
+            })
+        })
+    </script>
+</body>
+
+</html>
