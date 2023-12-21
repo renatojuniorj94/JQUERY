@@ -15,3 +15,5 @@ Aula 5 - Efeitos e animações
 https://www.w3schools.com/jquery/jquery_hide_show.asp
 
 ----------------------FIM--------------------
+
+Aula 6 - Como manipular o DOM
