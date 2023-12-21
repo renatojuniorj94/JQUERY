@@ -17,3 +17,11 @@ https://www.w3schools.com/jquery/jquery_hide_show.asp
 ----------------------FIM--------------------
 
 Aula 6 - Como manipular o DOM
+
+---------------FIM---------------
+
+Aula 7 - Requisições ajax
+
+
+
+--------------------FIM---------------------
