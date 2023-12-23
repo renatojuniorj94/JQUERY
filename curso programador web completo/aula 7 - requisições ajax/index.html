@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Conhecendo o AJAX</h1>
 
@@ -26,7 +28,7 @@
     <p><input id="cep" type="text" placeholder="Digite seu cep"></p>
     <p><input id="cidade" type="text" placeholder="Cidade"></p>
     <p><input id="uf" type="text" placeholder="UF"></p>
-    
+
     <script src="js/jquery-3.7.1.js"></script>
 
     <script>
@@ -36,13 +38,32 @@
             })
         }) */
 
-        $(document).ready(function() {
-            $("#cep").blur(function() {
-                $.get("https://viacep.com.br/ws/22753200/json/", function(dados, status){
-                    
-                }) //get = pegar
+        $(document).ready(function () {
+            $("#cep").blur(function () {
+                var valor = $(this).val()
+                $.ajax({
+                    url: "https://viacep.com.br/ws/" + valor + "/json/",
+                    type: "GET",
+                    success: function (dados, status) {
+                        $("#cidade").val(dados.localidade)
+                        $("#uf").val(dados.uf)
+                    },
+                    error: function (){
+                        alert('Erro')
+                    }
+                })
+                /* $.get("https://viacep.com.br/ws/"+ valor +"/json/", function(dados, status){
+                    console.log(status)
+                    if (status == "sucess") {
+                    $("#cidade").val(dados.localidade)
+                    $("#uf").val(dados.uf)
+                } else {
+                    alert('Houve um problema ao requisitar')
+                }
+                }) */
             })
         })
     </script>
 </body>
+
 </html>
