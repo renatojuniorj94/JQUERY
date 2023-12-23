@@ -25,3 +25,13 @@ Aula 7 - Requisições ajax
 
 
 --------------------FIM---------------------
+
+Aula 8 - Método NoConflict
+
+Antes do código usamos $.noConflict(), e ao decorrer do código podemos substituir '$' por 'jQuery' ou criar uma variável com o método noConflict().
+
+Ex: var jq = $.noConflict()
+E usar 'jq' no lugar de '$' ou 'jQuery
+'
+
+-------------------FIM-------------------
