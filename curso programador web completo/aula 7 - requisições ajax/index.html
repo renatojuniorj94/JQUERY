@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conhecendo o AJAX</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conhecendo o AJAX</h1>
+
+    <div id="teste">
+
+        <p>Conteúdo inicial</p>
+    </div>
+
+    <br>
+
+    <button id="botao">Clique aqui para carregar um conteúdo externo</button>
+
+    <p><input id="cep" type="text" placeholder="Digite seu cep"></p>
+    <p><input id="cidade" type="text" placeholder="Cidade"></p>
+    <p><input id="uf" type="text" placeholder="UF"></p>
+    
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <script>
+        /* $(document).ready(function() {
+            $("#botao").click(function() {
+                $("#teste").load("teste.txt")
+            })
+        }) */
+
+        $(document).ready(function() {
+            $("#cep").blur(function() {
+                $.get("https://viacep.com.br/ws/22753200/json/", function(dados, status){
+                    
+                }) //get = pegar
+            })
+        })
+    </script>
+</body>
+</html>
