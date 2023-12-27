@@ -22,6 +22,15 @@ button {
 .resposta {
     margin: auto auto;
     margin-bottom: 1%;
+    cursor: pointer;
+}
+
+.resposta:hover {
+    background: yellow;
+}
+
+.resposta.selecionada {
+    background-color: rgb(166, 166, 255);
 }
 
 #confirmar {

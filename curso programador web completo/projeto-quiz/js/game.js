@@ -6,38 +6,38 @@ const pergunta = [
     {
         pergunta: "Qual dessas linguagens não é considerada uma linguagem de programação",
         respostas: ["PHP",
-        "JavaScript",
-        "C++",
-        "HTML"
+            "JavaScript",
+            "C++",
+            "HTML"
         ],
-        correta: "resp3" 
+        correta: "resp3"
     },
     {
         pergunta: "Em que ano o Brasil foi descoberto?",
         respostas: ["1498",
-        "1500",
-        "1375",
-        "1828"
+            "1500",
+            "1375",
+            "1828"
         ],
-        correta: "resp1" 
+        correta: "resp1"
     },
     {
         pergunta: "O que significa a sigla HTML?",
         respostas: ["Hyper Tonto Maluco Legal",
-        "Hyper Text Markup Language",
-        "Hey Trade More Language",
-        "Hype Text Mark Lang"
+            "Hyper Text Markup Language",
+            "Hey Trade More Language",
+            "Hype Text Mark Lang"
         ],
-        correta: "resp1" 
+        correta: "resp1"
     },
     {
         pergunta: "Qual dessas linguagens é considerada uma linguagem de programação",
         respostas: ["HTML",
-        "JavaScript",
-        "C++",
-        "PHP"
+            "JavaScript",
+            "C++",
+            "PHP"
         ],
-        correta: "resp0" 
+        correta: "resp0"
     }
 ]
 
@@ -46,14 +46,14 @@ var qtdPerguntas = pergunta.length - 1
 
 gerarPergunta(qtdPerguntas)
 
-function gerarPergunta(maxPerguntas){
+function gerarPergunta(maxPerguntas) {
     //Gerar um número aleatório
     let aleatorio = (Math.random() * maxPerguntas).toFixed()
     //Convertendo para número
     aleatorio = Number(aleatorio)
 
     //Verificar se a pergunta sorteada já foi feita
-    if (!perguntasFeitas.includes(aleatorio)){
+    if (!perguntasFeitas.includes(aleatorio)) {
         //Colocar como pergunta feita
         perguntasFeitas.push(aleatorio)
 
@@ -84,8 +84,31 @@ function gerarPergunta(maxPerguntas){
         var pai = $("#respostas")
         var botoes = pai.children()
 
-        for(var i = 1; i < botoes.length; i++) {
+        for (var i = 1; i < botoes.length; i++) {
             pai.append(botoes.eq(Math.floor(Math.random() * botoes.length)))
+        }
+    } else {
+        //Se a pergunta já foi feita
+        console.log("A pergunta já foi feita. Sorteando novamente...")
+        if(perguntasFeitas.length < qtdPerguntas + 1) {
+            return gerarPergunta(maxPerguntas)
+        } else {
+            console.log("Acabaram as peguntas!")
         }
     }
 }
+
+$(".resposta").click(function () {
+    //Percorrendo todas as respostas e desmarcando classe selecionada
+    $(".resposta").each(function (){
+        if($(this).hasClass("selecionada")) {
+            $(this).removeClass("selecionada")
+        }
+    })
+    //Adicionar a classe selecionada
+    $(this).addClass('selecionada')
+})
+
+$("#confirmar").click(function() {
+    
+})
