@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#quiz {
+    margin-top: 10%;
+}
+
+button {
+    display: block; /* deixa os itens em posição fixa */
+    width: 300px;
+    padding: 10px;
+    border: none;
+}
+
+.resposta {
+    margin: auto auto;
+    margin-bottom: 1%;
+}
+
+#confirmar {
+    margin: auto auto;
+    background: rgb(48, 177, 48);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#confirmar:hover{
+    background: rgb(0, 97, 0);
+}
