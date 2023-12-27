@@ -31,7 +31,7 @@ const pergunta = [
         correta: "resp1"
     },
     {
-        pergunta: "Qual dessas linguagens é considerada uma linguagem de programação",
+        pergunta: "Qual dessas linguagens é considerada uma linguagem de marcação",
         respostas: ["HTML",
             "JavaScript",
             "C++",
@@ -63,6 +63,7 @@ function gerarPergunta(maxPerguntas) {
 
         //Colocando a pergunta do sorteio na tag <h2>
         $("#pergunta").html(p_selecionada)
+        $("#pergunta").attr('data-indice', aleatorio)
 
         //Colocando as respostas
         /* var resp0 = pergunta[aleatorio].respostas[0]
@@ -90,7 +91,7 @@ function gerarPergunta(maxPerguntas) {
     } else {
         //Se a pergunta já foi feita
         console.log("A pergunta já foi feita. Sorteando novamente...")
-        if(perguntasFeitas.length < qtdPerguntas + 1) {
+        if (perguntasFeitas.length < qtdPerguntas + 1) {
             return gerarPergunta(maxPerguntas)
         } else {
             console.log("Acabaram as peguntas!")
@@ -100,8 +101,8 @@ function gerarPergunta(maxPerguntas) {
 
 $(".resposta").click(function () {
     //Percorrendo todas as respostas e desmarcando classe selecionada
-    $(".resposta").each(function (){
-        if($(this).hasClass("selecionada")) {
+    $(".resposta").each(function () {
+        if ($(this).hasClass("selecionada")) {
             $(this).removeClass("selecionada")
         }
     })
@@ -109,6 +110,59 @@ $(".resposta").click(function () {
     $(this).addClass('selecionada')
 })
 
-$("#confirmar").click(function() {
-    
-})
+$("#confirmar").click(function () {
+    // Pegar o índice da pergunta
+    var indice = $("#pergunta").attr('data-indice')
+
+    // Qual é a resposta certa
+    var respCerta = pergunta[indice].correta
+
+    var respostaEscolhida = ""; // Declare aqui fora do loop
+
+    // Qual foi a resposta que o usuário selecionou
+    $(".resposta").each(function () {
+        if ($(this).hasClass("selecionada")) {
+            respostaEscolhida = $(this).attr('id');
+        }
+    });
+
+    if (respCerta === respostaEscolhida) {
+        console.log('Acertou!');
+        proximaPergunta()
+    } else {
+        console.log('Erroooooooou!');
+    }
+});
+
+function proximaPergunta() {
+    $(".resposta").each(function () {
+        if ($(this).hasClass("selecionada")) {
+            $(this).removeClass("selecionada")
+        }
+    })
+
+    gerarPergunta(qtdPerguntas)
+}
+
+
+/*$("#confirmar").click(function () {
+    //Pegar o indice da pergunta
+    var indice = $("#pergunta").attr('data-indice')
+
+    //Qual é a resposta certa
+    var respCerta = pergunta[indice].correta
+
+    //Qual foi a resposta que o usuario selecionou
+    $(".resposta").each(function () {
+        if ($(this).hasClass("selecionada")){
+            var respostaEscolhida = $(this).attr('id')
+    }
+    })
+
+    if (respCerta == respostaEscolhida) {
+        alert('Acertou!')
+    } else {
+        alert('Erroooooooou!')
+    }
+
+}) */
