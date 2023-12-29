@@ -45,3 +45,25 @@ button {
 #confirmar:hover{
     background: rgb(0, 97, 0);
 }
+
+.errada {
+    background: red;
+    color: white;
+}
+
+.correta {
+    background: green;
+    color: white;
+    animation: piscaCerto 0.2s infinite;
+}
+
+@keyframes piscaCerto {
+    0%,
+    49%{
+        background: rgb(0, 139, 0);
+    }   
+    50%,
+    100%{
+        background: rgb(57, 167, 105);
+    } 
+}

@@ -1,5 +1,5 @@
 /*var qtdPerguntas = 3*/
-const perguntasFeitas = []
+let perguntasFeitas = []
 
 //Perguntas do jogo
 const pergunta = [
@@ -101,11 +101,14 @@ function gerarPergunta(maxPerguntas) {
 
 $(".resposta").click(function () {
     //Percorrendo todas as respostas e desmarcando classe selecionada
-    $(".resposta").each(function () {
+    /* $(".resposta").each(function () {
         if ($(this).hasClass("selecionada")) {
             $(this).removeClass("selecionada")
         }
-    })
+    }) */
+
+    resetaBotoes()
+
     //Adicionar a classe selecionada
     $(this).addClass('selecionada')
 })
@@ -124,24 +127,44 @@ $("#confirmar").click(function () {
         if ($(this).hasClass("selecionada")) {
             respostaEscolhida = $(this).attr('id');
         }
-    });
+    })
 
     if (respCerta === respostaEscolhida) {
-        console.log('Acertou!');
+        console.log('Acertou!')
         proximaPergunta()
     } else {
         console.log('Erroooooooou!');
+        $('#' + respCerta).addClass('correta')
+        $('#' + respostaEscolhida).removeClassClass('selecionada')
+        $('#' + respostaEscolhida).addClass('errada')
+        setTimeout(function(){
+            newGame()
+        }, 4000)
     }
 });
 
+function newGame(){
+    perguntasFeitas = []
+}
+
 function proximaPergunta() {
+    
+    resetaBotoes()
+    gerarPergunta(qtdPerguntas)
+}
+
+function resetaBotoes() {
     $(".resposta").each(function () {
         if ($(this).hasClass("selecionada")) {
             $(this).removeClass("selecionada")
         }
+        if ($(this).hasClass("correta")) {
+            $(this).removeClass("selecionada")
+        }
+        if ($(this).hasClass("errada")) {
+            $(this).removeClass("errada")
+        }
     })
-
-    gerarPergunta(qtdPerguntas)
 }
 
 
