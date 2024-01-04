@@ -95,22 +95,28 @@ function gerarPergunta(maxPerguntas) {
             return gerarPergunta(maxPerguntas)
         } else {
             console.log("Acabaram as peguntas!")
+
+            $('#quiz').addClass('oculto')
+            $('#mensagem').html('Parabéns! Você acertou todas as perguntas!')
+            $('#status').removeClass('oculto')
         }
     }
 }
 
 $(".resposta").click(function () {
-    //Percorrendo todas as respostas e desmarcando classe selecionada
-    /* $(".resposta").each(function () {
-        if ($(this).hasClass("selecionada")) {
-            $(this).removeClass("selecionada")
-        }
-    }) */
+    if ($('#quiz').attr('data-status') !== 'travado') {
+        //Percorrendo todas as respostas e desmarcando classe selecionada
+        /* $(".resposta").each(function () {
+            if ($(this).hasClass("selecionada")) {
+                $(this).removeClass("selecionada")
+            }
+        }) */
 
-    resetaBotoes()
+        resetaBotoes()
 
-    //Adicionar a classe selecionada
-    $(this).addClass('selecionada')
+        //Adicionar a classe selecionada
+        $(this).addClass('selecionada')
+    }
 })
 
 $("#confirmar").click(function () {
@@ -134,21 +140,29 @@ $("#confirmar").click(function () {
         proximaPergunta()
     } else {
         console.log('Erroooooooou!');
-        $('#' + respCerta).addClass('correta')
-        $('#' + respostaEscolhida).removeClassClass('selecionada')
+        $('#quiz').attr('data-status', 'travado')
+/*         $('#confirmar').addClass('oculto')
+ */        $('#' + respCerta).addClass('correta')
+        $('#' + respostaEscolhida).removeClass('selecionada')
         $('#' + respostaEscolhida).addClass('errada')
-        setTimeout(function(){
-            newGame()
+        setTimeout(function () {
+            gameOver()
         }, 4000)
     }
 });
 
-function newGame(){
+function newGame() {
+/*     $('#confirmar').removeClass('oculto')
+ */    $('#quiz').attr('data-status', 'ok')
     perguntasFeitas = []
+    resetaBotoes()
+    gerarPergunta(qtdPerguntas)
+    $('#quiz').removeClass('oculto')
+    $('#status').addClassClass('oculto')
 }
 
 function proximaPergunta() {
-    
+
     resetaBotoes()
     gerarPergunta(qtdPerguntas)
 }
@@ -167,6 +181,15 @@ function resetaBotoes() {
     })
 }
 
+function gameOver() {
+    $('#quiz').addClass('oculto')
+    $('#mensagem').html('Game Over!')
+    $('#status').removeClass('oculto')
+}
+
+$('#novoJogo').click(function () {
+    newGame()
+})
 
 /*$("#confirmar").click(function () {
     //Pegar o indice da pergunta

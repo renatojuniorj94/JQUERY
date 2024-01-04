@@ -67,3 +67,19 @@ button {
         background: rgb(57, 167, 105);
     } 
 }
+
+#status {
+    padding: 10%;
+    border: 1px solid #ccc;
+}
+
+#novoJogo {
+    background: black;
+    color: white;
+    margin: auto auto;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}
